@@ -20,10 +20,10 @@ Inside **: ** days (** years, **%)
 Outside **: ** days (** years, **%)
 Residency in **: ** year(s) ** day(s)
 
-COUNTRY     DAYS	%	    RANK.	FIRST VISIT	    LAST VISIT
-XX          **	    **%     **	    ****-**-**	    ****-**-**
-YY          **	    **%	    **  	****-**-**	    ****-**-**
-OTHER	    **	    **%
+COUNTRY     DAYS     %        RANK.    FIRST VISIT    LAST VISIT
+XX          **       **%      **       ****-**-**     ****-**-**
+YY          **       **%      **       ****-**-**     ****-**-**
+OTHER       **       **%
 
 Chronological Report
 [2000] XX
