@@ -1,0 +1,13 @@
+{
+    "source": "travel_history.csv",
+    "lang": "en",
+    "track_home": false,
+    "home_code": "XX",
+    "home_name": "Gallifrey",
+    "track_residency": false,
+    "residency_code": "YY",
+    "residency_name": "Earth",
+    "residency_begin": "2010-01-01",
+    "table_style": "short",
+    "report_style": "chrono"
+}
