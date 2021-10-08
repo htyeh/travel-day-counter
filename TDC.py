@@ -147,6 +147,9 @@ class TravelDayCounter:
         elif self.lang == 'ko':
             print('방문한 나라에 체류 기간')
             print(str(date.today()) + '까지 방문한 ' + str(self.num_visited_countries) + '개의 국가\n')
+        elif self.lang == 'ko-hanja':
+            print('訪問한 나라에 滯留期間')
+            print(str(date.today()) + '까지 訪問한 ' + str(self.num_visited_countries) + '個의 國家\n')
         elif self.lang == 'zh':
             print('到訪國家停留紀錄')
             print('至' + str(date.today()) + '已訪問' + str(self.num_visited_countries) + '個國家\n')
@@ -158,6 +161,9 @@ class TravelDayCounter:
         elif self.lang == 'ko':
             print(self.home_name if self.home_name else self.home_code, '내:', self.days_home, '일', '(' + str(self.years_home) + ' 년, ' + str(round((self.days_home/(self.days_home+self.days_abroad))*100, 1))+'%)')
             print(self.home_name if self.home_name else self.home_code, '외:', self.days_abroad, '일', '(' + str(self.years_abroad) + ' 년, ' + str(round((self.days_abroad/(self.days_home+self.days_abroad))*100, 1))+'%)')
+        elif self.lang == 'ko-hanja':
+            print(self.home_name if self.home_name else self.home_code, '內:', self.days_home, '日', '(' + str(self.years_home) + ' 年, ' + str(round((self.days_home/(self.days_home+self.days_abroad))*100, 1))+'%)')
+            print(self.home_name if self.home_name else self.home_code, '外:', self.days_abroad, '日', '(' + str(self.years_abroad) + ' 年, ' + str(round((self.days_abroad/(self.days_home+self.days_abroad))*100, 1))+'%)')
         elif self.lang == 'zh':
             print(self.home_name+'內' if self.home_name else self.home_code+'內', self.days_home, '天（' + str(self.years_home) + '年，' + str(round((self.days_home/(self.days_home+self.days_abroad))*100, 1))+'%）')
             print(self.home_name+'外' if self.home_name else self.home_code+'外', self.days_abroad, '天（' + str(self.years_abroad) + '年，' + str(round((self.days_abroad/(self.days_home+self.days_abroad))*100, 1))+'%）')
@@ -166,7 +172,9 @@ class TravelDayCounter:
         if self.lang == 'en':
             print('Residency in ' + self.residency_name + ':', int(self.residency_period/365), 'year(s)', self.residency_period%365, 'day(s)\n')
         elif self.lang == 'ko':
-            print(self.residency_name + '에서 합법적 거주:', int(self.residency_period/365), '년', self.residency_period%365, '일\n')
+            print(self.residency_name + '에 합법적 거주기간:', int(self.residency_period/365), '년', self.residency_period%365, '일\n')
+        elif self.lang == 'ko-hanja':
+            print(self.residency_name + '에 合法的居住期間:', int(self.residency_period/365), '年', self.residency_period%365, '日\n')
         elif self.lang == 'zh':
             print(self.residency_name + '合法居留時間', int(self.residency_period/365), '年', self.residency_period%365, '天\n')
 
@@ -182,7 +190,7 @@ class TravelDayCounter:
                     print('\t'.join([country, str(days), self.country2percent[country], str(self.country2rank[country]), str(self.country2firstvisit[country]), str(self.country2lastvisit[country])]))
                 print('\t'.join(['OTHER', str(rest_days), rest_percent]))
         elif self.lang == 'ko':
-            print('\t'.join(['국가', '일', '퍼센트', '순위', '처음 방문 날짜', '마지막 방문 날짜']))
+            print('\t'.join(['국가', '일수', '퍼센트', '순위', '처음 방문 날짜', '마지막 방문 날짜']))
             if self.table_style == 'full':
                 for country, days in sorted(self.country2days.items(), key=lambda x:x[1], reverse=True):
                     print('\t'.join([country, str(days), self.country2percent[country], str(self.country2rank[country])+'위', str(self.country2firstvisit[country]), str(self.country2lastvisit[country])]))
@@ -191,6 +199,16 @@ class TravelDayCounter:
                 for country, days in sorted(shortened_c2d.items(), key=lambda x:x[1], reverse=True):
                     print('\t'.join([country, str(days), self.country2percent[country], str(self.country2rank[country])+'위', str(self.country2firstvisit[country]), str(self.country2lastvisit[country])]))
                 print('\t'.join(['기타', str(rest_days), rest_percent]))
+        elif self.lang == 'ko-hanja':
+            print('\t'.join(['國家', '日數', '퍼센트', '順位', '처음 訪問 날짜', '마지막 訪問 날짜']))
+            if self.table_style == 'full':
+                for country, days in sorted(self.country2days.items(), key=lambda x:x[1], reverse=True):
+                    print('\t'.join([country, str(days), self.country2percent[country], str(self.country2rank[country])+'位', str(self.country2firstvisit[country]), str(self.country2lastvisit[country])]))
+            elif self.table_style == 'short':
+                shortened_c2d, rest_days, rest_percent = self.shortened_table()
+                for country, days in sorted(shortened_c2d.items(), key=lambda x:x[1], reverse=True):
+                    print('\t'.join([country, str(days), self.country2percent[country], str(self.country2rank[country])+'位', str(self.country2firstvisit[country]), str(self.country2lastvisit[country])]))
+                print('\t'.join(['其他', str(rest_days), rest_percent]))
         elif self.lang == 'zh':
             print('\t'.join(['國家', '天數', '百分比', '排名', '最初訪問日', '最近訪問日']))
             if self.table_style == 'full':
@@ -209,6 +227,8 @@ class TravelDayCounter:
                 print('\nChronological Report')
             elif self.lang == 'ko':
                 print('\n연대순 방문 기록')
+            elif self.lang == 'ko-hanja':
+                print('\n年代順訪問記錄')
             elif self.lang == 'zh':
                 print('\n年度訪問紀錄')
             for year, country_list in sorted(self.visityear2countries.items()):

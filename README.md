@@ -2,7 +2,7 @@
 
 ## Intro
 * **Travel Day Counter** is a toolkit that helps track all your visited countries and provides an overview of how long you spent in each one, when you last vivsited them, and much more.
-* A list of all features can be found under the `Features` section.
+* A list of all features can be found under `Features` section.
 
 ## Dependencies
 * `pandas`
@@ -45,16 +45,6 @@ Chronological Report
     ```
 * **Configuring the output**
     * The output sections can be customized by modifying `config.json`.
-    * `source` - this should a `csv` file, you can create one with a name of your choice
-    * `lang` - swap in the language code to change the language, currently supported are **English** (`en`), **Korean** (`ko`), **traditional Chinese** (`zh`)
-    * `track_home` - (`true`/`false`) activate it if you wish to compare the time spent home and abroad
-    * `home_code` - your home country's country code, use the same system as in your `source` data
-    * `home_name` - this is how the country's name is displayed in natural language
-    * `track_residency` - (`true`/`false`) if you live abroad, you can track how long you have lived in your country of residence
-    * `residency_code`, `residency_name` - ref. `home_code` and `home_name`
-    * `residency_begin` - ("yyyy-mm-dd") the starting date of your residency
-    * `table_style` - (`short`/`full`) viewing option for the main table of statistics, if `short` is chosen, only countries with stays longer than a threshold (7 days by default) are displayed as separate entries, all other countries are grouped together
-    * `report_style` - the only option supported currently is `chrono`, which prints visited countries sorted by year, the report can be disabled by setting the value to `null`
     ```
     {
     "source": "travel_history.csv",
@@ -70,9 +60,25 @@ Chronological Report
     "report_style": "chrono"
     }
     ```
+    * `source` - this should a `csv` file, you can create one with a name of your choice
+    * `lang` - swap in the language code to change the language, currently supported languages are listed under `Supported Languages` section
+    * `track_home` - (`true`/`false`) activate it if you wish to compare the time spent home and abroad
+    * `home_code` - your home country's country code, use the same system as in your `source` data
+    * `home_name` - this is how the country's name is displayed in natural language
+    * `track_residency` - (`true`/`false`) if you live abroad, you can track how long you have lived in your country of residence
+    * `residency_code`, `residency_name` - ref. `home_code` and `home_name`
+    * `residency_begin` - ("yyyy-mm-dd") the starting date of your residency
+    * `table_style` - (`short`/`full`) viewing option for the main table of statistics, if `short` is chosen, only countries with stays longer than a threshold (7 days by default) are displayed as separate entries, all other countries are grouped together
+    * `report_style` - the only option supported currently is `chrono`, which prints visited countries sorted by year, the report can be disabled by setting the value to `null`
 
 ## Features
-* **Travel history & statistics**
-* **Track days home & abroad**
-* **Track residency**
-* **Generate a report**
+* Travel history & statistics
+* Track days home & abroad
+* Track residency
+* Generate a report
+
+## Supported Languages
+* `en` - English
+* `ko` - Korean
+* `ko-hanja` - Korean mixed script
+* `zh` - traditional Chinese
