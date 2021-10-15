@@ -24,6 +24,7 @@ class TravelDayCounter:
             self.years_abroad (float)
             self.residency_period (int): in days
         Config attributes:
+            self.user_name (str)
             self.source (str)
             self.lang (str)
             self.track_home (bool)
@@ -142,16 +143,16 @@ class TravelDayCounter:
 
     def print_header(self):
         if self.lang == 'en':
-            print('Travel Day Counter')
+            print(self.user_name + '\'s travel history')
             print(str(self.num_visited_countries) + ' countries visited until ' + str(date.today()) + '\n')
         elif self.lang == 'ko':
-            print('방문한 나라에 체류 기간')
-            print(str(date.today()) + '까지 방문한 ' + str(self.num_visited_countries) + '개의 국가\n')
+            print(self.user_name + ' 님의 여행 기록')
+            print(str(date.today()) + '까지는 ' + str(self.num_visited_countries) + '개 국가를 방문하였습니다\n')
         elif self.lang == 'ko-hanja':
-            print('訪問한 나라에 滯留期間')
-            print(str(date.today()) + '까지 訪問한 ' + str(self.num_visited_countries) + '個의 國家\n')
+            print(self.user_name + ' 님의 旅行記錄')
+            print(str(date.today()) + '까지는 ' + str(self.num_visited_countries) + '個國家를 訪問하였습니다\n')
         elif self.lang == 'zh':
-            print('到訪國家停留紀錄')
+            print(self.user_name + '的旅行紀錄')
             print('至' + str(date.today()) + '已訪問' + str(self.num_visited_countries) + '個國家\n')
 
     def print_in_n_out_stats(self):

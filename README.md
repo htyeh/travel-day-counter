@@ -13,7 +13,7 @@
 ```
 # EXAMPLE OUTPUT
 
-Travel Day Counter
+***'s travel history
 ** countries visited until ****-**-**
 
 Inside **: ** days (** years, **%)
@@ -47,6 +47,7 @@ Chronological Report
     * The output sections can be customized by modifying `config.json`.
     ```
     {
+    "user_name": "Default User",
     "source": "travel_history.csv",
     "lang": "en",
     "track_home": true,
@@ -60,8 +61,9 @@ Chronological Report
     "report_style": "chrono"
     }
     ```
+    * `user_name` - customize the output by putting in your name
     * `source` - this should a `csv` file, you can create one with a name of your choice
-    * `lang` - swap in the language code to change the language, currently supported languages are listed under `Supported Languages` section
+    * `lang` - swap in the language code to change the language, currently supported options are: `en` (English), `ko` (Korean), `ko-hanja` (Korean mixed script), and `zh` (traditional Chinese)
     * `track_home` - (`true`/`false`) activate it if you wish to compare the time spent home and abroad
     * `home_code` - your home country's country code, use the same system as in your `source` data
     * `home_name` - this is how the country's name is displayed in natural language
@@ -76,9 +78,3 @@ Chronological Report
 * Track days home & abroad
 * Track residency
 * Generate a report
-
-## Supported Languages
-* `en` - English
-* `ko` - Korean
-* `ko-hanja` - Korean mixed script
-* `zh` - traditional Chinese

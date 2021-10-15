@@ -1,4 +1,5 @@
 {
+    "user_name": "Default User",
     "source": "travel_history.csv",
     "lang": "en",
     "track_home": false,
